@@ -43,12 +43,6 @@ style("mosaic", "image2")
 style("starry_night", "image2")
 style("cuphead", "image2")
 
-# y = y.detach().numpy().reshape((256,256,3))
-# plt.imshow(y)
-# plt.show()
-
-# traced_model = torch.jit.trace(net, x)
-
 # label_url = 'https://storage.googleapis.com/download.tensorflow.org/data/ImageNetLabels.txt'
 # class_labels = urllib.request.urlopen(label_url).read().decode("utf-8").splitlines()
 
@@ -60,13 +54,3 @@ style("cuphead", "image2")
 # print(torch.max(y))
 
 # print(class_labels[torch.argmax(y)])
-
-exit(0)
-
-model = ct.convert(
-    traced_model,
-    inputs=[ct.ImageType(name="input_image", shape=x.shape)],
-    classifier_config=ct.ClassifierConfig(class_labels)
-)
-
-model.save("starry_night.mlmodel")
